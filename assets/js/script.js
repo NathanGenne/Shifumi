@@ -1,25 +1,30 @@
 // --------------------------------------------------------------------------------------------
 // ---------------------------Fonction Drag and Drop ------------------------------------------
 // --------------------------------------------------------------------------------------------
+
 let yourChoice;
 let aiChoice;
 let yourScore = 0;
 let iaScore = 0;
 let counter = 1;
+
 function dragNdrop() {
   item = $(".item");
+
   item.mouseenter(function () {
     $(this).css({
       transform: "translateY(-20px)",
       transition: "transform 200ms ease-in-out",
     });
   });
+
   item.mouseleave(function () {
     $(this).css({
       transform: "translateY(0px)",
       transition: "transform 200ms ease-in-out",
     });
   });
+
   item.on("dragstart", dragStart);
   item.on("dragend", dragEnd);
 
@@ -62,6 +67,7 @@ function dragNdrop() {
       `<img class="img-card item" src="./assets/img/` + aiChoice + `.svg">`
     );
   }
+  
   // au moment du relachement
   function drop() {
     let item = $(".active");
@@ -83,7 +89,7 @@ function dragNdrop() {
     }, 1000);
     setTimeout(function () {
       roundCount();
-    }, 2000);
+    }, 5000);
   }
 }
 
@@ -99,11 +105,11 @@ function roundCount() {
   
   if (counter > 10) {
     if (yourScore > iaScore) {
-      alert(`You Win, Score -You: ${yourScore}IA:  ${iaScore}`);
+      alert(`You Won !`);
     } else if (yourScore == iaScore) {
-      alert(`Draw, Score -   You: ${yourScore}    IA:  ${iaScore}`);
+      alert(`It's a Draw !`);
     } else {
-      alert(`You loose, Score -   You: ${yourScore}    IA:  ${iaScore}`);
+      alert(`You lost !`);
     }
     counter = 1;
     round.text(counter);
@@ -111,7 +117,7 @@ function roundCount() {
     $(".scoreUser span").text(yourScore);
     iaScore = 0;
     $(".scoreAI span").text(iaScore);
-    $(".message").text("Shi...Fu...Mi");
+    $(".message").text("Shi...Fu...Mi !");
 
   }
 }
@@ -120,5 +126,4 @@ function roundCount() {
 
 $(function () {
   dragNdrop();
-  // roundCount()
 });
