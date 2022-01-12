@@ -96,7 +96,11 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  border-radius: 15%;
 }
+.first-card { background-color: rgba(255, 128, 128, 0.3); }
+.first-card:hover { background-color: rgba(128, 255, 139, 0.3); }
+
 .section-2{
   display: flex;
   justify-content: center;
@@ -144,4 +148,8 @@ body {
 .message,
 .scoreAI{
   font-size: 1.5rem;
+}
+
+.scoreAI, .scoreUser {
+  font-size: 2.5rem;
 }

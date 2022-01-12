@@ -89,7 +89,15 @@ function dragNdrop() {
     }, 1000);
     setTimeout(function () {
       roundCount();
-    }, 5000);
+    }, 3000);
+  }
+
+  function dragEnter(e) {
+    e.target.addClass('drag-over');
+  }
+
+  function dragLeave(e) {
+    e.target.classList.removeClass('drag-over');
   }
 }
 
@@ -103,7 +111,7 @@ function roundCount() {
   $(".message").text("Shi...Fu...Mi");
   iaCard.remove()
   
-  if (counter > 10) {
+  if (counter > 5) {
     if (yourScore > iaScore) {
       alert(`You Won !`);
     } else if (yourScore == iaScore) {
